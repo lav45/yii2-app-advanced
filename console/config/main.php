@@ -1,0 +1,22 @@
+<?php
+$params = array_merge(
+    require __DIR__ . '/../../common/config/params.php',
+    require __DIR__ . '/../../common/config/params-local.php',
+    require __DIR__ . '/params.php',
+    require __DIR__ . '/params-local.php'
+);
+
+return [
+    'id' => 'app-console',
+    'basePath' => dirname(__DIR__),
+    'controllerNamespace' => 'console\controllers',
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm'   => '@vendor/npm-asset',
+    ],
+    'controllerMap' => [
+        'config' => 'lav45\projectConfiguration\console\controllers\ConfigController'
+    ],
+    'components' => [],
+    'params' => $params,
+];
