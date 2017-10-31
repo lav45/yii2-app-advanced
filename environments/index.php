@@ -29,36 +29,36 @@
  * ```
  */
 return [
-    'Development' => [
+    'dev' => [
         'path' => 'dev',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
-            'frontend/runtime',
-            'frontend/web/assets',
+            'admin/runtime',
+            'admin/web/assets',
+            'www/runtime',
+            'www/web/assets',
         ],
         'setExecutable' => [
             'yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'admin/config/main-local.php',
+            'www/config/main-local.php',
         ],
     ],
-    'Production' => [
+    'prod' => [
         'path' => 'prod',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
-            'frontend/runtime',
-            'frontend/web/assets',
+            'admin/runtime',
+            'admin/web/assets',
+            'www/runtime',
+            'www/web/assets',
         ],
         'setExecutable' => [
             'yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
+            'admin/config/main-local.php',
+            'www/config/main-local.php',
         ],
     ],
 ];
