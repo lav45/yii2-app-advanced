@@ -30,18 +30,18 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
         ],
-        'as access' => [
-            'class' => 'yii\filters\AccessControl',
-            'rules' => [
-                [
-                    'controllers' => ['site'],
-                    'actions' => ['login', 'error'],
-                    'allow' => true,
-                ],
-                [
-                    'roles' => ['@'],
-                    'allow' => true,
-                ],
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'controllers' => ['site'],
+                'actions' => ['login', 'error'],
+                'allow' => true,
+            ],
+            [
+                'roles' => ['@'],
+                'allow' => true,
             ],
         ],
     ],
