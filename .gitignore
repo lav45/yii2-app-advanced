@@ -5,10 +5,6 @@
 
 # phpstorm project files
 .idea/*
-!.idea/php.xml
-!.idea/app.iml
-!.idea/misc.xml
-!.idea/modules.xml
 
 # netbeans project files
 nbproject
