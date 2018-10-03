@@ -17,12 +17,12 @@ return [
             'csrfParam' => '_csrf-admin',
         ],
         'user' => [
-            'identityClass' => common\models\User::class,
+            'identityClass' => admin\models\User::class,
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-admin', 'httpOnly' => true],
         ],
         'session' => [
-            'name' => 'advanced-admin',
+            'name' => 'session-admin',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

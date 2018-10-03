@@ -22,6 +22,7 @@
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "2.0.*",
         "yiisoft/yii2-swiftmailer": "2.1.*",
+        "lav45/yii2-ajax-create": "0.1.*",
         "lav45/yii2-project-configuration": "1.0.*",
         "lav45/yii2-db-migrate": "0.4.*"
     },

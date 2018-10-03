@@ -14,21 +14,13 @@ return [
         'request' => [
             'csrfParam' => '_csrf-www',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-www', 'httpOnly' => true],
-        ],
-        'session' => [
-            'name' => 'advanced-www',
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [],
+            'rules' => require __DIR__ . '/url_rules.php',
         ],
     ],
     'params' => $params,

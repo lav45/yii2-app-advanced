@@ -19,15 +19,14 @@ class m000000_000000_init extends MainMigration
     public function table_user()
     {
         $this->createTable('{{%user}}', [
-            'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull()->unique(),
+            'login' => $this->string(32),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string()->unique(),
-            'email' => $this->string()->notNull()->unique(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(10),
+            'is_active' => $this->boolean()->defaultValue(true)->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $this->tableOptions);
+
+        $this->addPrimaryKey('{{%user}}', 'login');
     }
 }
