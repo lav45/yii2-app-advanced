@@ -14,16 +14,19 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.4.0",
+        "php": ">=7.0",
+        "ext-pdo": "*",
+        "ext-json": "*",
         "ext-intl": "*",
         "ext-memcache": "*",
         "yiisoft/yii2": "2.0.*",
         "yiisoft/yii2-bootstrap": "2.0.*",
-        "yiisoft/yii2-swiftmailer": "2.0.* || 2.1.*",
+        "yiisoft/yii2-swiftmailer": "2.1.*",
         "lav45/yii2-project-configuration": "1.0.*",
         "lav45/yii2-db-migrate": "0.4.*"
     },
     "require-dev": {
+        "roave/security-advisories": "dev-master",
         "yiisoft/yii2-debug": "2.0.*",
         "yiisoft/yii2-gii": "2.0.*"
     },
