@@ -15,7 +15,7 @@ return [
         ],
         'db' => [
             'class' => yii\db\Connection::class,
-            'dsn' => "mysql:host={$db_host};dbname={$db_name}",
+            'dsn' => "pgsql:host={$db_host};dbname={$db_name}",
             'username' => config('db_username', 'root'),
             'password' => config('db_password', ''),
             'charset' => 'utf8',

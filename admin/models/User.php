@@ -25,8 +25,13 @@ class User extends \common\models\User implements IdentityInterface
             [['login'], 'string', 'max' => 32],
             [['login'], 'unique'],
 
-            [['password'], 'required'],
             [['password'], 'string', 'max' => 16],
+            [['password'], 'required',
+                'enableClientValidation' => false,
+                'when' => function() {
+                    return $this->getIsNewRecord();
+                }
+            ],
 
             [['is_active'], 'boolean'],
         ];
@@ -34,13 +39,18 @@ class User extends \common\models\User implements IdentityInterface
 
     /**
      * @inheritdoc
+     * @param int|bool $cache
      */
-    public static function findIdentity($id)
+    public static function findIdentity($id, $cache = 3600)
     {
-        return static::find()
-            ->where(['login' => $id, 'is_active' => true])
-            ->cache(3600)
-            ->one();
+        $query = static::find()
+            ->where(['login' => $id, 'is_active' => true]);
+
+        if ($cache) {
+            $query->cache($cache);
+        }
+
+        return $query->one();
     }
 
     /**

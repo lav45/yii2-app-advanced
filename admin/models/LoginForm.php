@@ -80,7 +80,7 @@ class LoginForm extends Model
     protected function getUser()
     {
         if ($this->model === null) {
-            $this->model = User::findIdentity($this->login);
+            $this->model = User::findIdentity($this->login, false);
         }
         return $this->model;
     }
