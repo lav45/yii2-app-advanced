@@ -19,7 +19,6 @@ DIRECTORY STRUCTURE
 -------------------
 
 ```
-.idea                    default project settings for PhpStorm
 common
     config/              contains shared configurations
     mail/                contains view files for e-mails

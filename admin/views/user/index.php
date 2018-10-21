@@ -16,19 +16,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php AjaxCreate::begin(); ?>
 
-    <div class="active-panel clearfix">
-        <div class="pull-left">
-            <h2 style="margin-top: 0;">
-                <?= Html::encode($this->title) ?>
-            </h2>
-        </div>
-        <div class="pull-right">
-            <?= Html::button('<span class="glyphicon glyphicon-plus"></span>', [
-                'data-href' => Url::toRoute(['create']),
-                'class' => 'btn btn-success',
-                'title' => 'Create',
-            ]) ?>
-        </div>
+    <div class="d-flex justify-content-between mb-3">
+        <h2 class="m-0"><?= Html::encode($this->title) ?></h2>
+        <?= Html::button('Create', [
+            'data-href' => Url::toRoute(['create']),
+            'class' => 'btn btn-outline-success',
+            'title' => 'Create'
+        ]) ?>
     </div>
 
     <?= GridView::widget([
@@ -37,15 +31,24 @@ $this->params['breadcrumbs'][] = $this->title;
             'login',
             'is_active:boolean',
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => \yii\grid\ActionColumn::class,
                 'template' => '{update} {delete}',
                 'buttons' => [
                     'update' => function() {
-                        return Html::button('<span class="glyphicon glyphicon-pencil"></span>', [
+                        return Html::button('<i class="far fa-pencil"></i>', [
                             'title' => 'Update',
-                            'class' => 'btn btn-xs btn-default',
+                            'class' => 'btn btn-sm btn-outline-secondary',
                             'data-href' => Url::toRoute(['update', 'id' => func_get_arg(2)]),
                             'data-pjax' => '0',
+                        ]);
+                    },
+                    'delete' => function($url) {
+                        return Html::a('<i class="far fa-trash"></i>', $url, [
+                            'class' => 'btn btn-sm btn-outline-secondary',
+                            'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
+                            'data-method' => 'post',
+                            'data-pjax' => '0',
+                            'title' => 'Delete',
                         ]);
                     },
                 ]

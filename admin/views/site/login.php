@@ -1,41 +1,40 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model admin\models\LoginForm */
+/**
+ * @var $this yii\web\View
+ * @var $model admin\models\LoginForm
+ */
 
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 $this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+    <div class="row justify-content-md-center mt-5">
+        <div class="col col-md-4">
+
             <h1><?= Html::encode($this->title) ?></h1>
 
-            <p>Please fill out the following fields to login:</p>
+            <?php $form = ActiveForm::begin([
+                'validateOnBlur' => false,
+                'layout' => 'default',
+            ]); ?>
 
-            <?php $form = ActiveForm::begin(['layout' => 'default']); ?>
+                <?= $form->field($model, 'login')->input('text', ['placeholder' => 'login', 'autofocus' => 'autofocus'])->label(false) ?>
 
-                <?= $form->field($model, 'login')
-                    ->input('text', ['placeholder' => $model->getAttributeLabel('login'), 'autofocus' => true])
-                    ->label(false) ?>
+                <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'password'])->label(false) ?>
 
-                <?= $form->field($model, 'password')
-                    ->passwordInput(['placeholder' => $model->getAttributeLabel('password')])
-                    ->label(false) ?>
+                <?= $form->field($model, 'rememberMe')->checkbox([
+                    'class' => 'custom-control-input',
+                    'label' => $model->getAttributeLabel('rememberMe'),
+                    'template' => '<div class="custom-control custom-checkbox mb-3">{input}{beginLabel}{labelTitle}{endLabel}{hint}{error}</div>',
+                    'labelOptions' => [
+                        'class' => 'custom-control-label'
+                    ],
+                ]) ?>
 
-                <div class="clearfix">
-                    <div class="pull-left">
-                        <?= $form->field($model, 'rememberMe')->checkbox() ?>
-                    </div>
-                    <div class="pull-right">
-                        <div class="form-group text-right">
-                            <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <?= Html::submitButton('Login', ['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'login-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

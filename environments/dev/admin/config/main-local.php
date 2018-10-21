@@ -11,6 +11,16 @@ return [
         ],
         'gii' => [
             'class' => 'yii\gii\Module',
+            'viewPath' => '@admin/components/gii/views',
+            'generators' => [
+                'crud' => [
+                    'class' => 'yii\gii\generators\crud\Generator',
+                    'templates' => [
+                        'default' => '@admin/components/gii/generators/crud/default',
+                        'without-view' => '@admin/components/gii/generators/crud/without-view'
+                    ]
+                ],
+            ]
         ],
     ],
     'components' => [

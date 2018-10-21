@@ -3,7 +3,7 @@
 namespace admin\components;
 
 use yii\base\Widget;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap4\ActiveForm;
 
 Widget::$autoIdPrefix = 'a';
 

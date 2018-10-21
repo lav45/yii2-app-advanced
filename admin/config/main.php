@@ -11,6 +11,7 @@ return [
     'id' => 'app-admin',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'admin\controllers',
+    'defaultRoute' => 'user',
     'modules' => [],
     'components' => [
         'request' => [
