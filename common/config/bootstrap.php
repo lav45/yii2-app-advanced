@@ -1,5 +1,5 @@
 <?php
-$root = dirname(dirname(__DIR__));
+$root = dirname(__DIR__, 2);
 Yii::setAlias('@root', $root);
 Yii::setAlias('@common', $root . '/common');
 Yii::setAlias('@www', $root . '/www');
