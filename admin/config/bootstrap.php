@@ -47,21 +47,21 @@ Yii::$container->set(\yii\grid\ActionColumn::class, [
     'buttons' => [
         'view' => function ($url) {
             return Html::a('<i class="far fa-eye"></i>', $url, [
-                'class' => 'btn btn-outline-dark btn-sm',
+                'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
                 'title' => 'View',
             ]);
         },
         'update' => function ($url) {
             return Html::a('<i class="far fa-pencil"></i>', $url, [
-                'class' => 'btn btn-outline-dark btn-sm',
+                'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
                 'title' => 'Update',
             ]);
         },
         'delete' => function ($url) {
             return Html::a('<i class="far fa-trash"></i>', $url, [
-                'class' => 'btn btn-outline-dark btn-sm',
+                'class' => 'btn btn-outline-secondary btn-sm',
                 'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                 'data-method' => 'post',
                 'data-pjax' => '0',
