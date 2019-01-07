@@ -22,10 +22,8 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <div class="container pt-5 pb-5">
-		<?= $content ?>
-	</div>
+<div class="container pt-5 pb-5">
+	<?= $content ?>
 </div>
 
 <?php $this->endBody() ?>
