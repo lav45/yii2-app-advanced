@@ -10,10 +10,10 @@ Yii::$container->set(\yii\widgets\Breadcrumbs::class, [
 Yii::$container->set(\yii\grid\GridView::class, [
     'tableOptions' => ['class' => 'table table-hover mb-0'],
     'options' => ['class' => 'grid-view'],
-    'layout' => '<div class="card">{items}</div><div class="clearfix mt-2">{pager}</div>',
+    'layout' => '<div class="card">{items}</div><div class="mt-2 d-flex justify-content-between">{summary} {pager}</div>',
     'pager' => [
         'options' => [
-            'class' => 'pagination pull-right',
+            'class' => 'pagination',
         ],
     ]
 ]);
@@ -49,14 +49,14 @@ Yii::$container->set(\yii\grid\ActionColumn::class, [
             return Html::a('<i class="far fa-eye"></i>', $url, [
                 'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
-                'title' => 'View',
+                'title' => Yii::t('yii', 'View'),
             ]);
         },
         'update' => function ($url) {
             return Html::a('<i class="far fa-pencil"></i>', $url, [
                 'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
-                'title' => 'Update',
+                'title' => Yii::t('yii', 'Update'),
             ]);
         },
         'delete' => function ($url) {
@@ -65,7 +65,7 @@ Yii::$container->set(\yii\grid\ActionColumn::class, [
                 'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
                 'data-method' => 'post',
                 'data-pjax' => '0',
-                'title' => 'Delete',
+                'title' => Yii::t('yii', 'Delete'),
             ]);
         },
     ]
