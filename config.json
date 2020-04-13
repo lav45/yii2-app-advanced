@@ -1,0 +1,17 @@
+{
+    "db": {
+        "name": "site",
+        "host": "postgres_site",
+        "username": "postgres",
+        "password": "postgres"
+    },
+    "mailer": {
+        "sender": {
+            "email": "no-reply@site.com",
+            "name": "site.com"
+        }
+    },
+    "frontend": {
+        "baseUrl": "http://www.site.com"
+    }
+}

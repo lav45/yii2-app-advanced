@@ -4,6 +4,7 @@
  * @var $dataProvider yii\data\ActiveDataProvider
  */
 
+use yii\grid\ActionColumn;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\grid\GridView;
@@ -31,10 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'login',
             'is_active:boolean',
             [
-                'class' => \yii\grid\ActionColumn::class,
+                'class' => ActionColumn::class,
                 'template' => '{update} {delete}',
                 'buttons' => [
-                    'update' => function() {
+                    'update' => static function() {
                         return Html::button('<i class="far fa-pencil"></i>', [
                             'title' => 'Update',
                             'class' => 'btn btn-sm btn-outline-secondary',
@@ -42,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'data-pjax' => '0',
                         ]);
                     },
-                    'delete' => function($url) {
+                    'delete' => static function($url) {
                         return Html::a('<i class="far fa-trash"></i>', $url, [
                             'class' => 'btn btn-sm btn-outline-secondary',
                             'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),

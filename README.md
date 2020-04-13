@@ -52,3 +52,43 @@ www
 vendor/                  contains dependent 3rd-party packages
 environments/            contains environment-based overrides
 ```
+
+## Install
+
+```
+~$ docker volume create postgres-12
+~$ docker network create site --subnet 172.30.0.0/16
+```
+
+Install docker-compose if it was not installed earlier
+```
+~$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
+~$ sudo chmod +x /usr/bin/docker-compose
+```
+
+Start the container build process
+```
+~$ env UID=$(id -u) GID=$(id -g) docker-compose build --pull --force-rm
+~$ docker-compose up -d --remove-orphans
+```
+
+```
+~$ export PATH=".:$PATH"
+
+~$ init --env=dev --overwrite=a
+~$ composer install --prefer-dist
+~$ yii migrate --interactive=0
+
+~$ yii user/create admin admin
+```
+
+Load config
+```
+~$ yii config config.json
+```
+
+Add new hosts to log in to the site
+```
+172.30.0.2      www.site.com admin.site.com
+172.30.0.4      postgres.site.com
+```

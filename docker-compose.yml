@@ -1,0 +1,54 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx:1
+    container_name: nginx_site
+    working_dir: /var/www
+    volumes:
+      - ./images/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - .:/var/www:delegated
+    depends_on:
+      - php
+    networks:
+      default:
+        ipv4_address: 172.30.0.2
+
+  php:
+    build:
+      context: ./images/php
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+    container_name: php_site
+    working_dir: /var/www
+    volumes:
+      - ./images/php/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
+      - .:/var/www:delegated
+    depends_on:
+      - postgres
+    networks:
+      default:
+        ipv4_address: 172.30.0.3
+
+  postgres:
+    image: postgres:12
+    container_name: postgres_site
+    volumes:
+      - postgres-12:/var/lib/postgresql/data:delegated
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: site
+    networks:
+      default:
+        ipv4_address: 172.30.0.4
+
+networks:
+  default:
+    external: true
+    name: site
+
+volumes:
+  postgres-12:
+    external: true

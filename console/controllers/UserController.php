@@ -42,11 +42,9 @@ class UserController extends Controller
      */
     public function actionDelete()
     {
-        $login = \func_num_args() > 0 ? func_get_arg(0) : $this->getStdIn('Enter login: ');
-
+        $login = @func_get_arg(0) ? : $this->getStdIn('Enter login: ');
         $user = $this->findUser($login);
         $user->delete();
-
         $this->stdout("* {$user->login} was deleted\n", Console::FG_GREEN);
     }
 
@@ -85,11 +83,9 @@ class UserController extends Controller
      */
     protected function showErrors($user)
     {
-        $_errors = [];
-        foreach ($user->getErrors() as $line) {
-            $_errors = array_merge($_errors, $line);
-        }
-        $this->stderr('* ' . implode("\n* ", $_errors) . "\n", Console::FG_RED);
+        $errors = $user->getFirstErrors();
+        $errors = implode("\n* ", $errors);
+        $this->stderr("{$errors}\n", Console::FG_RED);
     }
 
     /**
@@ -99,7 +95,9 @@ class UserController extends Controller
      */
     protected function findUser($login)
     {
-        if (($user = User::findOne(trim($login))) === null) {
+        $login = trim($login);
+        $user = User::findOne($login);
+        if ($user === null) {
             throw new Exception('User not found');
         }
         return $user;

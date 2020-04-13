@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker exec -u $(id -u):$(id -g) -it php_site $@

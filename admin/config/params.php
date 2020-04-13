@@ -3,7 +3,7 @@ return [
     'menu' => [
         [
             'label' => 'Public',
-            'url' => config('www_url', $_SERVER['REQUEST_SCHEME'] . '://' . substr(strstr($_SERVER['HTTP_HOST'], '.'), 1)),
+            'url' => config('frontend.baseUrl', 'http://www.site.com'),
             'linkOptions' => [
                 'target' => '_blank',
                 'rel' => 'noopener',

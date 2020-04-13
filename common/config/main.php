@@ -1,7 +1,7 @@
 <?php
 
-$db_name = config('db_name', 'yii2advanced');
-$db_host = config('db_host', 'localhost');
+$db_name = config('db.name', 'site');
+$db_host = config('db.host', 'postgres_site');
 
 return [
     'aliases' => [
@@ -16,12 +16,10 @@ return [
         'db' => [
             'class' => yii\db\Connection::class,
             'dsn' => "pgsql:host={$db_host};dbname={$db_name}",
-            'username' => config('db_username', 'root'),
-            'password' => config('db_password', ''),
+            'username' => config('db.username', 'postgres'),
+            'password' => config('db.password', 'postgres'),
             'charset' => 'utf8',
-
             'enableSchemaCache' => true,
-
             'attributes' => [
                 PDO::ATTR_PERSISTENT => true,
             ],
@@ -31,7 +29,9 @@ return [
             'viewPath' => '@common/mail',
             'messageConfig' => [
                 'charset' => 'UTF-8',
-                'from' => ['noreply@mfsa.ru' => 'Web site'],
+                'from' => [
+                    config('mailer.sender.email', 'no-reply@site.com') => config('mailer.sender.name', 'site.com')
+                ],
             ],
         ],
     ],

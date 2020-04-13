@@ -14,13 +14,13 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.4",
         "ext-pdo": "*",
         "ext-json": "*",
         "ext-intl": "*",
         "ext-memcache": "*",
         "yiisoft/yii2": "2.0.*",
-        "yiisoft/yii2-bootstrap4": "1.0.x-dev",
+        "yiisoft/yii2-bootstrap4": "2.0.*",
         "yiisoft/yii2-swiftmailer": "2.1.*",
         "lav45/yii2-ajax-create": "0.2.*",
         "lav45/yii2-project-configuration": "1.0.*",
@@ -28,8 +28,8 @@
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
-        "yiisoft/yii2-debug": "2.1.x-dev",
-        "yiisoft/yii2-gii": "2.2.x-dev"
+        "yiisoft/yii2-debug": "2.1.*",
+        "yiisoft/yii2-gii": "2.3.*"
     },
     "config": {
         "process-timeout": 1800
@@ -42,10 +42,6 @@
         {
             "type": "git",
             "url": "https://github.com/lav45/yii2-gii.git"
-        },
-        {
-            "type": "git",
-            "url": "https://github.com/lav45/yii2-debug.git"
         }
     ]
 }

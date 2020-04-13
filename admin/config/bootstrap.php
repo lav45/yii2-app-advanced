@@ -1,16 +1,25 @@
 <?php
 
+use lav45\widget\AjaxCreate;
+use yii\bootstrap4\ActiveForm;
+use yii\data\Pagination;
+use yii\grid\ActionColumn;
+use yii\grid\DataColumn;
+use yii\grid\GridView;
+use yii\grid\SerialColumn;
 use yii\helpers\Html;
+use yii\widgets\Breadcrumbs;
+use yii\widgets\LinkPager;
 
-Yii::$container->set(\yii\widgets\Breadcrumbs::class, [
+Yii::$container->set(Breadcrumbs::class, [
     'itemTemplate' => '<li class="breadcrumb-item">{link}</li>',
     'activeItemTemplate' => '<li class="breadcrumb-item active">{link}</li>',
 ]);
 
-Yii::$container->set(\yii\grid\GridView::class, [
+Yii::$container->set(GridView::class, [
     'tableOptions' => ['class' => 'table table-hover mb-0'],
     'options' => ['class' => 'grid-view'],
-    'layout' => '<div class="card">{items}</div><div class="mt-2 d-flex justify-content-between">{summary} {pager}</div>',
+    'layout' => '<div class="card">{items}</div><div class="mt-2 d-flex justify-content-between">{pager}</div>',
     'pager' => [
         'options' => [
             'class' => 'pagination',
@@ -18,11 +27,11 @@ Yii::$container->set(\yii\grid\GridView::class, [
     ]
 ]);
 
-Yii::$container->set(\yii\grid\DataColumn::class, [
+Yii::$container->set(DataColumn::class, [
     'headerOptions' => ['class' => 'text-nowrap'],
 ]);
 
-Yii::$container->set(\yii\widgets\LinkPager::class, [
+Yii::$container->set(LinkPager::class, [
     'linkContainerOptions' => [
         'class' => 'page-item',
     ],
@@ -34,7 +43,7 @@ Yii::$container->set(\yii\widgets\LinkPager::class, [
     ]
 ]);
 
-Yii::$container->set(\yii\grid\ActionColumn::class, [
+Yii::$container->set(ActionColumn::class, [
     'header' => 'Action',
     'headerOptions' => [
         'class' => 'text-center',
@@ -45,21 +54,21 @@ Yii::$container->set(\yii\grid\ActionColumn::class, [
     ],
     'template' => '{update} {delete}',
     'buttons' => [
-        'view' => function ($url) {
+        'view' => static function ($url) {
             return Html::a('<i class="far fa-eye"></i>', $url, [
                 'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
                 'title' => Yii::t('yii', 'View'),
             ]);
         },
-        'update' => function ($url) {
+        'update' => static function ($url) {
             return Html::a('<i class="far fa-pencil"></i>', $url, [
                 'class' => 'btn btn-outline-secondary btn-sm',
                 'data-pjax' => '0',
                 'title' => Yii::t('yii', 'Update'),
             ]);
         },
-        'delete' => function ($url) {
+        'delete' => static function ($url) {
             return Html::a('<i class="far fa-trash"></i>', $url, [
                 'class' => 'btn btn-outline-secondary btn-sm',
                 'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
@@ -71,7 +80,7 @@ Yii::$container->set(\yii\grid\ActionColumn::class, [
     ]
 ]);
 
-Yii::$container->set(\yii\grid\SerialColumn::class, [
+Yii::$container->set(SerialColumn::class, [
     'headerOptions' => [
         'style' => 'width: 20px',
     ],
@@ -80,12 +89,12 @@ Yii::$container->set(\yii\grid\SerialColumn::class, [
     ]
 ]);
 
-Yii::$container->set(\yii\data\Pagination::class, [
+Yii::$container->set(Pagination::class, [
     'defaultPageSize' => 20,
     'pageSizeLimit' => [1, 100],
 ]);
 
-Yii::$container->set(\yii\bootstrap4\ActiveForm::class, [
+Yii::$container->set(ActiveForm::class, [
     'validateOnBlur' => false,
     'validateOnChange' => false,
     'errorSummaryCssClass' => 'alert alert-danger',
@@ -95,7 +104,7 @@ Yii::$container->set(\yii\bootstrap4\ActiveForm::class, [
     'layout' => 'horizontal',
 ]);
 
-Yii::$container->set(\lav45\widget\AjaxCreate::class, [
+Yii::$container->set(AjaxCreate::class, [
     'optionsPjax' => [
         'linkSelector' => false,
         'formSelector' => false,
