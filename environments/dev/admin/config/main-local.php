@@ -8,9 +8,11 @@ return [
     'modules' => [
         'debug' => [
             'class' => 'yii\debug\Module',
+            'allowedIPs' => ['*'],
         ],
         'gii' => [
             'class' => 'yii\gii\Module',
+            'allowedIPs' => ['*'],
             'viewPath' => '@admin/components/gii/views',
             'generators' => [
                 'crud' => [
