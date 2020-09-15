@@ -76,7 +76,7 @@ Start the container build process
 ~$ export PATH=".:$PATH"
 
 ~$ init --env=dev --overwrite=a
-~$ composer install --prefer-dist
+~$ composer install
 ~$ yii migrate --interactive=0
 
 ~$ yii user/create admin admin
