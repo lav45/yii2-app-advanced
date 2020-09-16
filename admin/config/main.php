@@ -16,14 +16,27 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-admin',
+            'csrfCookie' => [
+                'name' => '_csrf-admin',
+                'httpOnly' => true,
+                'sameSite' => yii\web\Cookie::SAME_SITE_LAX,
+            ]
         ],
         'user' => [
             'identityClass' => admin\models\User::class,
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-admin', 'httpOnly' => true],
+            'identityCookie' => [
+                'name' => '_identity-admin',
+                'httpOnly' => true,
+                'sameSite' => yii\web\Cookie::SAME_SITE_LAX,
+            ],
         ],
         'session' => [
-            'name' => 'session-admin',
+            'name' => '_session-admin',
+            'cookieParams' => [
+                'httpOnly' => true,
+                'sameSite' => yii\web\Cookie::SAME_SITE_LAX,
+            ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
