@@ -5,8 +5,11 @@
 /* @var $answers array */
 /* @var $id string panel ID */
 
+use common\assets\fontawesome\FontAwesomeAsset;
 use yii\helpers\Html;
 use yii\gii\CodeFile;
+
+FontAwesomeAsset::register($this);
 
 ?>
 <div class="default-view-files">
@@ -103,10 +106,18 @@ use yii\gii\CodeFile;
                             <strong class="modal-title">Modal title</strong>
                         </div>
                         <div class="btn-group">
-                            <a class="modal-previous btn btn-sm btn-outline-secondary" href="#" title="Previous File (Left Arrow)"><span class="fa fa-arrow-left"></span></a>
-                            <a class="modal-next btn btn-sm btn-outline-secondary" href="#" title="Next File (Right Arrow)"><span class="fa fa-arrow-right"></span></a>
-                            <a class="modal-refresh btn btn-sm btn-outline-secondary" href="#" title="Refresh File (R)"><span class="fa fa-refresh"></span></a>
-                            <a class="modal-checkbox btn btn-sm btn-outline-secondary" href="#" title="Check This File (Space)"><span class="fa fa-check-square-o"></span></a>
+                            <a class="modal-previous btn btn-sm btn-outline-secondary" href="#" title="Previous File (Left Arrow)">
+                                <span class="fa fa-arrow-left"></span>
+                            </a>
+                            <a class="modal-next btn btn-sm btn-outline-secondary" href="#" title="Next File (Right Arrow)">
+                                <span class="fa fa-arrow-right"></span>
+                            </a>
+                            <a class="modal-refresh btn btn-sm btn-outline-secondary" href="#" title="Refresh File (R)">
+                                <span class="fa fa-sync-alt"></span>
+                            </a>
+                            <a class="modal-checkbox btn btn-sm btn-outline-secondary" href="#" title="Check This File (Space)">
+                                <span class="fa fa-check-square"></span>
+                            </a>
                         </div>
                         <div>
                             <span class="modal-copy-hint"><kbd>CTRL</kbd>+<kbd>C</kbd> to copy</span>
