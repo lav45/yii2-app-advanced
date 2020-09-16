@@ -101,7 +101,7 @@ FontAwesomeAsset::register($this);
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="d-flex justify-content-between w-100">
+                    <div style="display: flex; justify-content: space-between; -ms-flex-pack: justify; width: 100%;">
                         <div>
                             <strong class="modal-title">Modal title</strong>
                         </div>
