@@ -6,9 +6,9 @@ use admin\models\User;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\VerbFilter;
+use yii\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\Response;
 use yii\widgets\ActiveForm;
 
 /**
@@ -52,13 +52,21 @@ class UserController extends Controller
     {
         $model = new User();
         $model->loadDefaultValues();
-        $model->generateAuthKey();
 
         if ($model->load(Yii::$app->request->post())) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
+            $model->generateAuthKey();
             $errors = ActiveForm::validate($model);
-            empty($errors) && $model->save(false);
-            return $errors;
+            if (empty($errors) === false) {
+                return $this->asJson($errors);
+            }
+            if ($model->save()) {
+                return $this->asJson([]);
+            }
+            $result = [];
+            foreach ($model->getErrors() as $attribute => $errors) {
+                $result[Html::getInputId($model, $attribute)] = $errors;
+            }
+            return $this->asJson($result);
         }
 
         return $this->renderAjax('create', [
@@ -77,10 +85,18 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post())) {
-            Yii::$app->response->format = Response::FORMAT_JSON;
             $errors = ActiveForm::validate($model);
-            empty($errors) && $model->save(false);
-            return $errors;
+            if (empty($errors) === false) {
+                return $this->asJson($errors);
+            }
+            if ($model->save()) {
+                return $this->asJson([]);
+            }
+            $result = [];
+            foreach ($model->getErrors() as $attribute => $errors) {
+                $result[Html::getInputId($model, $attribute)] = $errors;
+            }
+            return $this->asJson($result);
         }
 
         return $this->renderAjax('update', [
