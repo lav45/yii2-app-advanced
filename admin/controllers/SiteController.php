@@ -1,11 +1,12 @@
 <?php
+
 namespace admin\controllers;
 
-use Yii;
-use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\web\ErrorAction;
 use admin\models\LoginForm;
+use Yii;
+use yii\filters\VerbFilter;
+use yii\web\Controller;
+use yii\web\ErrorAction;
 
 /**
  * Site controller
@@ -40,23 +41,13 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    /**
      * Login action.
      *
      * @return string
      */
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
+        if (!Yii::$app->getUser()->getIsGuest()) {
             return $this->goHome();
         }
 
@@ -79,7 +70,7 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
+        Yii::$app->getUser()->logout();
         return $this->goHome();
     }
 }

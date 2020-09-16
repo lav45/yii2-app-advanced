@@ -20,22 +20,26 @@ $this->title = 'Login';
                 'layout' => 'default',
             ]); ?>
 
-                <?= $form->field($model, 'login')->input('text', ['placeholder' => 'login', 'autofocus' => 'autofocus'])->label(false) ?>
+            <?= $form->field($model, 'login')
+                ->textInput(['placeholder' => $model->getAttributeLabel('login'), 'autofocus' => 'autofocus'])
+                ->label(false) ?>
 
-                <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'password'])->label(false) ?>
+            <?= $form->field($model, 'password')
+                ->passwordInput(['placeholder' => $model->getAttributeLabel('password')])
+                ->label(false) ?>
 
-                <?= $form->field($model, 'rememberMe')->checkbox([
-                    'class' => 'custom-control-input',
-                    'label' => $model->getAttributeLabel('rememberMe'),
-                    'template' => '<div class="custom-control custom-checkbox mb-3">{input}{beginLabel}{labelTitle}{endLabel}{hint}{error}</div>',
-                    'labelOptions' => [
-                        'class' => 'custom-control-label'
-                    ],
-                ]) ?>
+            <?= $form->field($model, 'rememberMe')->checkbox([
+                'class' => 'custom-control-input',
+                'label' => $model->getAttributeLabel('rememberMe'),
+                'template' => '<div class="custom-control custom-checkbox mb-3">{input}{beginLabel}{labelTitle}{endLabel}{hint}{error}</div>',
+                'labelOptions' => [
+                    'class' => 'custom-control-label'
+                ],
+            ]) ?>
 
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'login-button']) ?>
-                </div>
+            <div class="form-group">
+                <?= Html::submitButton('Login', ['class' => 'btn btn-lg btn-primary btn-block', 'name' => 'login-button']) ?>
+            </div>
 
             <?php ActiveForm::end(); ?>
         </div>
