@@ -10,7 +10,7 @@ echo "<?php\n";
 ?>
 /**
  * @var $this yii\web\View
- * @var $model <?= ltrim($generator->searchModelClass, '\\') ?>
+ * @var $model <?= ltrim($generator->searchModelClass, '\\') . "\n" ?>
  */
 
 use yii\helpers\Html;

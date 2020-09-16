@@ -52,7 +52,7 @@ Yii::$container->set(ActionColumn::class, [
     'contentOptions' => [
         'class' => 'text-center text-nowrap',
     ],
-    'template' => '{update} {delete}',
+    'template' => '{view} {update} {delete}',
     'buttons' => [
         'view' => static function ($url) {
             return Html::a('<i class="far fa-eye"></i>', $url, [
@@ -102,6 +102,15 @@ Yii::$container->set(ActiveForm::class, [
         'autocomplete' => 'off'
     ],
     'layout' => 'horizontal',
+    'fieldConfig' => [
+        'horizontalCssClasses' => [
+            'label' => 'offset-sm-1 col-sm-2 text-right',
+            'offset' => 'offset-sm-3',
+            'wrapper' => 'col-sm-7',
+            'error' => '',
+            'hint' => '',
+        ],
+    ],
 ]);
 
 Yii::$container->set(AjaxCreate::class, [

@@ -7,16 +7,16 @@ return [
     ],
     'modules' => [
         'debug' => [
-            'class' => 'yii\debug\Module',
+            'class' => yii\debug\Module::class,
             'allowedIPs' => ['*'],
         ],
         'gii' => [
-            'class' => 'yii\gii\Module',
+            'class' => yii\gii\Module::class,
             'allowedIPs' => ['*'],
             'viewPath' => '@admin/components/gii/views',
             'generators' => [
                 'crud' => [
-                    'class' => 'yii\gii\generators\crud\Generator',
+                    'class' => yii\gii\generators\crud\Generator::class,
                     'templates' => [
                         'default' => '@admin/components/gii/generators/crud/default',
                         'without-view' => '@admin/components/gii/generators/crud/without-view'

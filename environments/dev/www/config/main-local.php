@@ -7,11 +7,11 @@ return [
     ],
     'modules' => [
         'debug' => [
-            'class' => 'yii\debug\Module',
+            'class' => yii\debug\Module::class,
             'allowedIPs' => ['*'],
         ],
         'gii' => [
-            'class' => 'yii\gii\Module',
+            'class' => yii\gii\Module::class,
             'allowedIPs' => ['*'],
         ],
     ],

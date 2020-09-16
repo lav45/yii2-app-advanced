@@ -17,7 +17,7 @@ echo "<?php\n";
 ?>
 /**
  * @var $this yii\web\View
- * @var $model <?= ltrim($generator->modelClass, '\\') ?>
+ * @var $model <?= ltrim($generator->modelClass, '\\') . "\n" ?>
  */
 
 use yii\helpers\Html;
@@ -36,7 +36,7 @@ use yii\bootstrap4\ActiveForm;
     }
 } ?>
     <div class="form-group row">
-        <div class="offset-md-2 col-md-8">
+        <div class="offset-sm-3 col-sm-7">
             <?= "<?= " ?>Html::submitButton(<?= $generator->generateString('Save') ?>, ['class' => 'btn btn-success']) ?>
         </div>
     </div>
