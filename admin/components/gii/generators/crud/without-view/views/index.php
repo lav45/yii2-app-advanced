@@ -20,7 +20,7 @@ echo "<?php\n";
 use yii\helpers\Html;
 use <?= $generator->indexWidgetType === 'grid' ? "yii\\grid\\GridView" : "yii\\widgets\\ListView" ?>;
 use yii\grid\ActionColumn;
-<?= $generator->enablePjax ? 'use yii\widgets\Pjax;' : '' ?>
+<?= $generator->enablePjax ? "use yii\widgets\Pjax;\n" : '' ?>
 
 $this->title = <?= $generator->generateString(Inflector::pluralize(Inflector::camel2words(StringHelper::basename($generator->modelClass)))) ?>;
 $this->params['breadcrumbs'][] = $this->title;
@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <h2 class="m-0"><?= "<?=" ?> Html::encode($this->title) ?></h2>
         <?= "<?= " ?>Html::a(<?= $generator->generateString('Create') ?>, ['create'], ['class' => 'btn btn-outline-success']) ?>
     </div>
-<?= $generator->enablePjax ? "    <?php Pjax::begin(); ?>\n" : '' ?>
+<?= $generator->enablePjax ? "\n    <?php Pjax::begin(); ?>\n" : '' ?>
 <?php if(!empty($generator->searchModelClass)): ?>
 <?= "    <?php " . ($generator->indexWidgetType === 'grid' ? "// " : "") ?>echo $this->render('_search', ['model' => $searchModel]); ?>
 <?php endif; ?>
@@ -64,7 +64,7 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 
             ['class' => ActionColumn::class],
         ],
-    ]); ?>
+    ]) ?>
 <?php else: ?>
     <?= "<?= " ?>ListView::widget([
         'dataProvider' => $dataProvider,
@@ -74,5 +74,5 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
         },
     ]) ?>
 <?php endif; ?>
-<?= $generator->enablePjax ? "    <?php Pjax::end(); ?>\n" : '' ?>
+<?= $generator->enablePjax ? "\n    <?php Pjax::end(); ?>\n" : '' ?>
 </div>
