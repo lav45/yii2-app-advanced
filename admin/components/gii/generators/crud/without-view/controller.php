@@ -157,6 +157,6 @@ if (count($pks) === 1) {
         if (($model = <?= $modelClass ?>::findOne(<?= $condition ?>)) !== null) {
             return $model;
         }
-        throw new NotFoundHttpException(<?= $generator->generateString('Page not found.') ?>);
+        throw new NotFoundHttpException(Yii::t('yii', 'Page not found.'));
     }
 }
