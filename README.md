@@ -56,7 +56,7 @@ environments/            contains environment-based overrides
 ## Install
 
 ```
-~$ docker volume create postgres-12
+~$ docker volume create postgres-13
 ~$ docker network create site --subnet 172.30.0.0/16
 ```
 

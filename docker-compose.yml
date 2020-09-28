@@ -32,10 +32,10 @@ services:
         ipv4_address: 172.30.0.3
 
   postgres:
-    image: postgres:12
+    image: postgres:13
     container_name: postgres_site
     volumes:
-      - postgres-12:/var/lib/postgresql/data:delegated
+      - postgres-13:/var/lib/postgresql/data:delegated
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -50,5 +50,5 @@ networks:
     name: site
 
 volumes:
-  postgres-12:
+  postgres-13:
     external: true
