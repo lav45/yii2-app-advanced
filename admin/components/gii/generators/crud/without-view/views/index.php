@@ -62,7 +62,10 @@ if (($tableSchema = $generator->getTableSchema()) === false) {
 }
 ?>
 
-            ['class' => ActionColumn::class],
+            [
+                'class' => ActionColumn::class,
+                'template' => '{update} {delete}',
+            ],
         ],
     ]) ?>
 <?php else: ?>
