@@ -38,6 +38,7 @@ abstract class BaseApplication extends yii\base\Application
  * Include only Web application related components here
  *
  * @property User $user The user component.
+ * @method User getUser()
  */
 class WebApplication extends yii\web\Application
 {
@@ -56,7 +57,8 @@ class ConsoleApplication extends yii\console\Application
 /**
  * Class User
  *
- * @property \common\models\User $identity
+ * @property \admin\models\User $identity
+ * @method \admin\models\User getIdentity()
  */
 class User extends \yii\web\User
 {
