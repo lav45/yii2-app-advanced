@@ -13,9 +13,8 @@
         "source": "https://github.com/yiisoft/yii2"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
-        "php": ">=7.4",
+        "php": "7.4.*",
         "ext-pdo": "*",
         "ext-json": "*",
         "ext-intl": "*",
