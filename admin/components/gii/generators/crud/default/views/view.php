@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="d-flex justify-content-between mb-3">
         <h2 class="m-0"><?= "<?=" ?> Html::encode($this->title) ?></h2>
-        <div>
+        <div class="text-nowrap">
             <?= "<?= " ?>Html::a(<?= $generator->generateString('Update') ?>, ['update', <?= $urlParams ?>], ['class' => 'btn btn-primary']) ?>
             <?= "<?= " ?>Html::a(<?= $generator->generateString('Delete') ?>, ['delete', <?= $urlParams ?>], [
                 'class' => 'btn btn-danger',
