@@ -20,7 +20,13 @@ class AppAsset extends AssetBundle
      * @var array
      */
     public $css = [
-        'css/site.css',
+        'css/main.css',
+    ];
+    /**
+     * @var array
+     */
+    public $js = [
+        'js/main.js',
     ];
     /**
      * @var array
