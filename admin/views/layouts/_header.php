@@ -33,7 +33,7 @@ echo Nav::widget([
     'activateItems' => true,
     'activateParents' => true,
     'encodeLabels' => false,
-    'options' => ['class' => 'navbar-nav'],
+    'options' => ['class' => 'navbar-nav ml-auto'],
     'items' => Yii::$app->params['menu'],
 ]);
 
