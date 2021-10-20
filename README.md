@@ -56,14 +56,8 @@ environments/            contains environment-based overrides
 ## Install
 
 ```
-~$ docker volume create postgres-13
+~$ docker volume create postgres-14
 ~$ docker network create site --subnet 172.30.0.0/16
-```
-
-Install docker-compose if it was not installed earlier
-```
-~$ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
-~$ sudo chmod +x /usr/bin/docker-compose
 ```
 
 Start the container build process
@@ -74,11 +68,9 @@ Start the container build process
 
 ```
 ~$ export PATH=".:$PATH"
-
 ~$ init --env=dev --overwrite=a
-~$ composer install
-~$ yii migrate --interactive=0
-
+~$ composer install --prefer-dist
+~$ yii migrate/up --interactive=0
 ~$ yii user/create admin admin
 ```
 

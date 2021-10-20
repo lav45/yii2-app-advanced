@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   nginx:
-    image: nginx:1
+    image: nginx:1.21
     container_name: nginx_site
     working_dir: /var/www
     volumes:
@@ -32,10 +32,10 @@ services:
         ipv4_address: 172.30.0.3
 
   postgres:
-    image: postgres:13
+    image: postgres:14
     container_name: postgres_site
     volumes:
-      - postgres-13:/var/lib/postgresql/data:delegated
+      - postgres-14:/var/lib/postgresql/data:delegated
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -50,5 +50,5 @@ networks:
     name: site
 
 volumes:
-  postgres-13:
+  postgres-14:
     external: true
